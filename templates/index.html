@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Deployment ML Project</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
+  
+</head>
+
+<body style="background: #6c022e;">
+ <div class="login">
+	<h1>Classificador de vinho</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post" class="grid-container">
+      <div class="column">
+        <input type="text" name="slalcohol" placeholder="Álcool" required="required" />
+        <input type="text" name="malic_acid" placeholder="Ácido málico" required="required" />
+        <input type="text" name="ash" placeholder="Cinzas" required="required" />
+        <input type="text" name="alcalinity_of_ash" placeholder="Alcalinidade das cinzas" required="required" />
+        <input type="text" name="magnesium" placeholder="Magnésio" required="required" />
+        <input type="text" name="total_phenols" placeholder="Fenóis totais" required="required" />
+        <input type="text" name="flavanoids" placeholder="Flavonoides" required="required" />
+
+
+      </div>
+      <div class="column">
+		    <input type="text" name="nonflavanoid_phenols" placeholder="Fenóis não flavonoides" required="required" />
+		    <input type="text" name="proanthocyanins" placeholder="Proantocianidinas" required="required" />
+		    <input type="text" name="color_intensity" placeholder="Intensidade de cor" required="required" />
+		    <input type="text" name="hue" placeholder="Tonalidade" required="required" />
+		    <input type="text" name="od280/od315_of_diluted_wines" placeholder="OD280/OD315 dos vinhos diluídos" required="required" />
+		    <input type="text" name="proline" placeholder="Prolina" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Classificar vinho</button>
+
+      </div>
+
+    </form>
+
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
